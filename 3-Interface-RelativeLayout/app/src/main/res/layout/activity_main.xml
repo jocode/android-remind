@@ -1,18 +1,74 @@
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+<RelativeLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.a3_interface_relativelayout.MainActivity">
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <TextView
+    <Button
+        android:id="@+id/btnCentro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="Centro"
+        android:layout_centerInParent="true"
+        android:layout_margin="10dp"/>
 
-</android.support.constraint.ConstraintLayout>
+    <Button
+        android:id="@+id/btnArriba"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Arriba"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/btnCentro"/>
+
+    <Button
+        android:id="@+id/btnAbajo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Abajo"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/btnCentro"/>
+
+    <Button
+        android:id="@+id/btnDerecha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Derecha"
+        android:layout_alignBaseline="@+id/btnCentro"
+        android:layout_toRightOf="@+id/btnCentro"/>
+
+    <Button
+        android:id="@+id/btnIzquierda"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Izquierda"
+        android:layout_alignBaseline="@+id/btnCentro"
+        android:layout_toLeftOf="@+id/btnCentro"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Inferior-Derecha"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Superior-Derecha"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"/>
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Inferior-Izquierda"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Superior-Izquierda"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"/>
+
+</RelativeLayout>

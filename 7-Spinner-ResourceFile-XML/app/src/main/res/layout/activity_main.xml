@@ -8,7 +8,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:text="Spinner con valores definidos en un Archivo de recursos"
+        android:text="Spinner con valores definidos en un ArrayList"
         android:textSize="20sp"
         android:textColor="#000"
         android:layout_margin="10dp"/>

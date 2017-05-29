@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">12-fragment-staticos</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment_one">Hola fragment vacío Uno</string>
+    <string name="hello_blank_fragment_two">Hola Fragment Vacío Dos</string>
+</resources>

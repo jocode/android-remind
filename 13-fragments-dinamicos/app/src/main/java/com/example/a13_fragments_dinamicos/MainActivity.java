@@ -29,9 +29,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId()){
 
             case R.id.btnFragmentOne:
+                /*Instanciamos el Fragment*/
                 OneFragment oneFragment = new OneFragment();
+                /*Instanciamos la API FragmentTrasaction */
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                /*Reemplazamos el fragment en el contenedor*/
                 transaction.replace(R.id.containerFragment, oneFragment);
+                /*Agregamos la transaccion a la pila trasera, para que podamos volver, al dar clic en el boton atras*/
+                transaction.addToBackStack(null);
+                /*Confirmamos la transaccion*/
                 transaction.commit();
                 break;
 
@@ -39,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 TwoFragment twoFragment = new TwoFragment();
                 FragmentTransaction transaction1 = getSupportFragmentManager().beginTransaction();
                 transaction1.replace(R.id.containerFragment, twoFragment);
+                transaction1.addToBackStack(null);
                 transaction1.commit();
                 break;
 

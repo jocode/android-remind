@@ -1,7 +1,5 @@
 package com.example.a15_swipeview_android;
 
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -15,7 +13,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -49,16 +46,6 @@ public class MainActivity extends AppCompatActivity {
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
-
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
     }
 
@@ -99,14 +86,26 @@ public class MainActivity extends AppCompatActivity {
         }
 
         /**
-         * Returns a new instance of this fragment for the given section
-         * number.
+         + Este método crea un fragment y lo retorna,
          */
-        public static PlaceholderFragment newInstance(int sectionNumber) {
-            PlaceholderFragment fragment = new PlaceholderFragment();
+        public static Fragment newInstance(int sectionNumber) {
+
+            Fragment fragment = null;
+
+            switch (sectionNumber){
+                case 1:
+                    fragment = new OneFragment();
+                    break;
+                case 2:
+                    fragment = new TwoFragment();
+                    break;
+                case 3:
+                    fragment = new ThreeFragment();
+                    break;
+            }
             Bundle args = new Bundle();
             args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-            fragment.setArguments(args);
+            /*En caso de aparecer error, cambiar el tipo de retorno del método a fragment */
             return fragment;
         }
 
@@ -139,19 +138,20 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            // Show 3 total pages.
+            // Show 3 total pages. La cantidad de fragments del ViewPager
             return 3;
         }
 
+        // Retorna una Cadena de Caracteres según la posición de la vista
         @Override
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "SECTION 1";
+                    return "Fragment 1";
                 case 1:
-                    return "SECTION 2";
+                    return "Fragment 2";
                 case 2:
-                    return "SECTION 3";
+                    return "Fragment 3";
             }
             return null;
         }

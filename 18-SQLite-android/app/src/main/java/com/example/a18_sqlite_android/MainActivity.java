@@ -57,6 +57,26 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+                // Nuevos valores, valores a actualizar
+                ContentValues values = new ContentValues();
+                values.put(DbHelper.TablaPersona.COLUMNA_NOMBRES, etNombres.getText().toString());
+                values.put(DbHelper.TablaPersona.COLUMNA_TELEFONO, etTelefono.getText().toString());
+
+                // Sentencia where
+                String selection = DbHelper.TablaPersona.COLUMNA_ID + " = ?";
+                String[] selectionArgs = {etId.getText().toString()};
+
+                // Actualización de los datos con el método update
+                int count = db.update(
+                        DbHelper.TablaPersona.TABLE_NAME,
+                        values,
+                        selection,
+                        selectionArgs
+                );
+
+                Toast.makeText(getApplicationContext(), "Se Actualizó "+count, Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -116,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
                 SQLiteDatabase db = dbHelper.getReadableDatabase();
 
                 //Defino la seleccion
-                String selection = DbHelper.TablaPersona.COLUMNA_ID + " =?";
+                String selection = DbHelper.TablaPersona.COLUMNA_ID + " = ?";
 
                 // Defino los argumentos de seleccion
                 String[] selectionArgs = {etId.getText().toString()};

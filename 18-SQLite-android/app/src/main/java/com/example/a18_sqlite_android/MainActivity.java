@@ -113,6 +113,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                SQLiteDatabase db = dbHelper.getReadableDatabase();
+
+                //Defino la seleccion
+                String selection = DbHelper.TablaPersona.COLUMNA_ID + " =?";
+
+                // Defino los argumentos de seleccion
+                String[] selectionArgs = {etId.getText().toString()};
+
+                // Hago la sentencia SQL para eliminar datos
+                db.delete(DbHelper.TablaPersona.TABLE_NAME, selection, selectionArgs);
             }
         });
 

@@ -1,12 +1,16 @@
 package com.example.a20_mapas_en_android;
 
+import android.Manifest;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptor;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -39,8 +43,18 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        LatLng posicion = new LatLng(2.816779, -75.230394);
+        mMap.addMarker(new MarkerOptions().position(posicion).title("Nombre del Marcador").snippet("Esta es la descripción del marcador")
+                    .draggable(true));
+
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(posicion));
+        mMap.setBuildingsEnabled(true);
+        
+        // Verificar si el permiso de localización está activo
+        int permissionCheck = ContextCompat.checkSelfPermission(MapsActivity.this, Manifest.permission.ACCESS_FINE_LOCATION);
+        if (permissionCheck==0){
+            // Habilitar la localización
+            mMap.setMyLocationEnabled(true);
+        }
     }
 }

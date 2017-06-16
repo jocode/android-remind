@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-06-2017 a las 18:58:16
+-- Tiempo de generación: 16-06-2017 a las 05:49:34
 -- Versión del servidor: 10.1.16-MariaDB
 -- Versión de PHP: 5.6.24
 
@@ -42,8 +42,8 @@ CREATE TABLE `datos_personales` (
 --
 
 INSERT INTO `datos_personales` (`id`, `cedula`, `nombres`, `apellidos`, `direccion`, `telefono`) VALUES
-(1, 12345, 'Juan', 'Magallan', 'La casa del arbol', '31242'),
-(2, 2345, 'Pedro', 'Ramirez', 'Rivereña', '1308410');
+(1, 3211, 'Juancho', 'Ramirez', 'Chambilo', '31254637'),
+(2, 3211, 'Chao', 'Android', 'Excelente', '31254637');
 
 --
 -- Índices para tablas volcadas

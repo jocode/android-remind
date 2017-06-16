@@ -26,21 +26,24 @@ class Connection {
 
 	public function query($sql){
 		$result = $this->mysqli->query($sql);
-		// Si la sentencia (SQL) está mal definida devuelve false, sino procede con la ejecución. 
+
+	// Si la sentencia (SQL) está mal definida devuelve false, sino procede con la ejecución. 
 		if ($result){
-			$row = $result->fetch_object();
-			if (count($row)>0){
-				return json_encode($row);
+
+			$data = array();
+			//Recorremos cada los objetos y lo almacenaos en un array
+			while ($row = $result->fetch_object()){
+				$data[] = $row;
+			}
+
+			if (count($data)>0){
+				return json_encode($data);
 			} else {
-				$data = array(
-					'info'=>'No se encontraron resultados'
-					);
+				$data[] = "No se encontraron resultados";
 				return json_encode($data);
 			}
 		} else {
-			$data = array(
-				'error' => 'Verifica la consulta a la base de datos' 
-				);
+			$data =array("Verifica la consulta a la base de datos");
 			return json_encode($data);
 		}
 

@@ -1,0 +1,16 @@
+
+1. Crear proyecto en Android Studio 
+   - La Api debe ser superior a la API 15: Android 4.0.3
+   - Añadir el mavenCentral() a las dependencias del archivo /app/build.gradle
+   - Añadir compile 'com.facebook.android:facebook-android-sdk:4.+' a las dependencias de 
+     compilació al archivo build.gradle
+
+2. Crear el proyecto en Facebook Developers
+   https://developers.facebook.com/docs/android
+   - Crear la aplicación y el identificador en Facebook
+   - Agregar el facebook_app_id, al string de la aplicación
+   - Agregar los permisos de internet a la aplicación móvil
+     <uses-permission android:name="android.permission.INTERNET"/>
+
+   - Agregar el meta-data al manifest de la aplicación
+     <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>

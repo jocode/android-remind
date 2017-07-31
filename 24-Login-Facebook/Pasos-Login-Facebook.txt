@@ -14,3 +14,18 @@
 
    - Agregar el meta-data al manifest de la aplicación
      <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+
+3. Crear el Key hashes para asegurar la autenticación entre facebook y la app Android
+
+Si no tiene opensssl instalado en el pc, agregalo. Para ello ve al siguiente enlace
+https://code.google.com/archive/p/openssl-for-windows/downloads y descarga open SSL
+Copia los archivos que estén incluidos en la carpeta Bin y pegalos en la carpeta
+Bin del JDK de Java.
+
+Ahora, ejecuta este comando en la terminal del sistema operativo
+keytool -exportcert -alias androiddebugkey -keystore C:\Users\Camilo\.android\debug.keystore | openssl sha1 -binary | openssl base64
+
+4. Crear la Actividad del Login
+   - Agregar el botón que provee Facebook al xml
+   - Instanciar el botón
+   - Crear el OnCallbackManager al botón

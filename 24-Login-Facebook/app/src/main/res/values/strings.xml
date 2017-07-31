@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">24-Login-Facebook</string>
-    <string name="facebook_app_id">120706591877161</string>
+    <string name="facebook_app_id">841174942723145</string>
+    <string name="fb_login_protocol_scheme">fb841174942723145</string>
 </resources>

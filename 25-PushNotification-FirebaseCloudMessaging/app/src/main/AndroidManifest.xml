@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.a25_pushnotification_firebasecloudmessaging">
 
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,6 +11,30 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <!--
+        Un servicio que extienda FirebaseMessagingService. Esto es obligatorio si deseas tener administrar los mensajes
+        además de recibir notificaciones en apps en segundo plano. Para recibir notificaciones en apps en primer plano,
+        recibir la carga de datos y enviar mensajes ascendentes, etc., debes extender este servicio.
+        -->
+        <service
+            android:name=".MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+
+        <!--
+        Un servicio que extienda FirebaseInstanceIdService para administrar la creación, la rotación y la actualización
+        de los tokens de registro. Esto es obligatorio para enviar a dispositivos específicos o para crear grupos de dispositivos.
+        -->
+        <service
+            android:name=".MyFirebaseInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

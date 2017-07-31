@@ -1,0 +1,32 @@
+1. Crear un Proyecto en la Consola de Firebas - SitioWeb
+   * Darle Nombre al Proyecto
+   * Seleccionar la Ubicación
+   * Seleccionar Opción Firebase para Android
+ 
+   * Copiar el nombre del Paquete
+   * Darle un Nombre Alternativo (Opcional)
+   * Generar el SHA1 del proyecto (Opcional)
+
+   * Descargar el archivo "google-services.json" y agregarlo en la raiz del
+     directorio app
+
+2. Agregar al Build.gradle del proyecto, los complementos de los servicios de google
+   classpath 'com.google.gms:google-services:3.1.0', en dependencias
+
+   Agregar al Build.gradle de la aplicación, el plugin de los servicios de google
+   Esto se debe agregar al final de todo
+   // Add to the bottom of the file
+   apply plugin: 'com.google.gms.google-services'
+
+3. Configurar una app cliente de Firebase Cloud Messaging en Android 
+
+   Los clientes de FCM (Firebase Cloud Messaging) deben tener una version Android 2.3
+   superior.
+
+   * Agrega la dependencia FCM a tu archivo build.gradle al nivel de la app
+     compile 'com.google.firebase:firebase-messaging:10.0.1'
+
+   * Agregar los Servicios de Firebase al Manifest de la App
+   * Crear los servicios que extiendan de Firebase
+   
+   
